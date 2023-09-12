@@ -1,0 +1,25 @@
+{
+  "name": "bot_discord",
+  "version": "1.0.0",
+  "description": "Estudo de como desenvolver um bot do discord",
+  "main": "main.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joaovictor1516/botDiscord.git"
+  },
+  "keywords": [
+    "bot",
+    "discord",
+    "javascript",
+    "nodejs"
+  ],
+  "author": "joaovictor1516",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/joaovictor1516/botDiscord/issues"
+  },
+  "homepage": "https://github.com/joaovictor1516/botDiscord#readme"
+}
