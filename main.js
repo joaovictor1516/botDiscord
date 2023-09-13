@@ -23,19 +23,32 @@ for(const file of commandsFiles){
     if("data" in commands && "execute" in commands){
         client.commands.set(commands.data.name, commands);
     } else{
-        console.log(`Data ou execute auxentes no comando ${filePath}`);
+        console.log(`data ou execute auxentes no comando ${filePath}`);
     }
 }
 
 client.once(Events.ClientReady, (c) => {
-    console.log(`Pronto! login bem sucedido do ${c.user.tag}`);
+    console.log(`pronto! login bem sucedido do ${c.user.tag}`);
 })
 
 client.login(TOKEN);
 
-client.on(Events.InteractionCreate, (interaction) => {
+client.on(Events.InteractionCreate, async (interaction) => {
     if(!interaction.isChatInputCommand){
         return;
     }
-    console.log(interaction);
+    
+    const command = interaction.client.commands.get(interaction.commandName);
+    if(!command){
+        console.error("deu ruim meu parceiro, o comando nao foi encontrado");
+        return;
+    }
+
+    try{
+        await command.execute(interaction);
+    }
+    catch(error){
+        console.error(error);
+        await interaction.reply("Deu ruim meu parceiro, o comando não funcionou")//informando ao usuário que o comando falhou.
+    }
 })
