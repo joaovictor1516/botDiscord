@@ -22,6 +22,12 @@ const row = new ActionRowBuilder()
                     label: "react",
                     description: "Documentação do framework React",
                     value: "react"
+                },
+
+                {
+                    label: "discord.js",
+                    description: "Documentação da biblioteca do Discord.js",
+                    value: "discordjs"
                 }
             )
     )
