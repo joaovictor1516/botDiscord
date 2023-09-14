@@ -5,11 +5,25 @@ const row = new ActionRowBuilder()
         new StringSelectMenuBuilder()
             .setCustomId("select")
             .setPlaceholder("Nenhma opção selecionada")
-            .addOptions({
+            .addOptions(
+                {
                 label: "javascript",
                 description: "Documentação da linguagem JavaScript",
                 value: "javascript"
-            })
+                },
+                
+                {
+                    label: "angular",
+                    description: "Documentação do framework Angular",
+                    value: "angular"
+                },
+
+                {
+                    label: "react",
+                    description: "Documentação do framework React",
+                    value: "react"
+                }
+            )
     )
 
 module.exports = {
