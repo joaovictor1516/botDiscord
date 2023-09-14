@@ -34,13 +34,39 @@ client.once(Events.ClientReady, (c) => {
 client.login(TOKEN);
 
 client.on(Events.InteractionCreate, async (interaction) => {
+    if(interaction.isStringSelectMenu()){
+        const selected = interaction.values[0]
+
+        switch(selected){
+            case "javascript": 
+                await interaction.reply("Documentação do JavaScript: https://developer.mozilla.org/en-US/docs/Web/JavaScript");
+                break;
+            
+            case "angular":
+                await interaction.reply("Documentação do Angular: https://angular.io");
+                break;
+
+            case "react":
+                await interaction.reply("Documentação do React: https://react.dev");
+                break;
+            
+            case "discordjs":
+                await interaction.reply("Documentação do Discord.js: https://discord.js.org");
+                break;
+
+            default:
+                await interaction.reply("Opção inválida");
+                break;
+        }
+    }
+
     if(!interaction.isChatInputCommand){
         return;
     }
     
     const command = interaction.client.commands.get(interaction.commandName);
     if(!command){
-        console.error("deu ruim meu parceiro, o comando nao foi encontrado");
+        console.error("o comando nao foi encontrado");
         return;
     }
 
@@ -49,6 +75,6 @@ client.on(Events.InteractionCreate, async (interaction) => {
     }
     catch(error){
         console.error(error);
-        await interaction.reply("Deu ruim meu parceiro, o comando não funcionou")//informando ao usuário que o comando falhou.
+        await interaction.reply(`o comando ${command} nao funcionou`)//informando ao usuário que o comando falhou.
     }
 })
