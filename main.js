@@ -54,6 +54,10 @@ client.on(Events.InteractionCreate, async (interaction) => {
                 await interaction.reply("Documentação do Discord.js: https://discord.js.org");
                 break;
 
+            case "nextjs":
+                await interaction.reply("Documentação do Next.js: https://nextjs.org");
+                break;
+
             default:
                 await interaction.reply("Opção inválida");
                 break;

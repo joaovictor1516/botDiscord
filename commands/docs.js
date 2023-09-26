@@ -25,6 +25,12 @@ const row = new ActionRowBuilder()
                 },
 
                 {
+                    label: "next.js",
+                    description: "Documentação do framework NextJS",
+                    value:'nextjs'
+                },
+
+                {
                     label: "discord.js",
                     description: "Documentação da biblioteca do Discord.js",
                     value: "discordjs"
